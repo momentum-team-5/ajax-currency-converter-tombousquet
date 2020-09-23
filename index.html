@@ -8,6 +8,26 @@
   <script src="script.js" async></script>
 </head>
 <body>
-
+  <header class="header"> 
+    <h1>Currency Converter</h1>
+  </header>
+  <div class="container">
+    <div>
+      <p>From</p>
+        <input type='number' id='name' name='name' required minlength="0" maxlength="8">
+        <select class='from'  name='currencyFrom' id='select'>
+          <option value=''>Please Select A Currency</option>
+        </select>
+    </div>
+    <div>  
+      <p>To</p>
+        <select class='to' name='convertedTo' id='select'>
+        <option value=''>Please Select A Currency</option>
+      </select>
+        <input type='submit' value='Convert!'>
+    </div>
+    <div class='Result'></div>
+    </div>
+  </div>
 </body>
 </html>
