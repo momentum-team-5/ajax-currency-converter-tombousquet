@@ -35,8 +35,10 @@ const currencies = [
 ]
 
 let baseUrl = "https://api.exchangeratesapi.io/latest?base="
-
-
+let finalUrl
+let targetEl 
+let currency
+let option
 
 for (currency of currencies) {
   let targetEl = document.querySelector('.from')
@@ -44,7 +46,6 @@ for (currency of currencies) {
   option.innerText = currency
   option.value = currency
   targetEl.appendChild(option)
-  console.log(option)
 }
 
 for (currency of currencies) {
@@ -53,13 +54,27 @@ for (currency of currencies) {
   option.innerText = currency
   option.value = currency
   targetEl.appendChild(option)
-  console.log(option)
 }
 
-for(currency of currencies){
-  FinalUrl = baseUrl + currency
-}
 
+let firstSelect = document.querySelector('.from')
+firstSelect.addEventListener('change' , function (event) {
+  let currencyType = document.querySelector('.from')
+  currencyType = baseUrl + event.target.value
+  console.log(currencyType)
+  fetch(currencyType)
+    .then(response => response.json())
+    .then( function (data) {
+      console.log(data)
+    })
+})
+
+let secondSelect = document.querySelector('.to')
+secondSelect.addEventListener('change' , function (event) {
+  let currencyType = document.querySelector('.to')
+  currencyType = event.target.value
+  console.log(currencyType)
+})
 
 // fetch(url)
 // .then(response => response.json())
